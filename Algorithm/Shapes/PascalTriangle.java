@@ -14,7 +14,7 @@ public class PascalTriangle {
 		int N = sc.nextInt();
 		int M = sc.nextInt();
 	
-		/*
+		
 		// save pascal values 
 		int[][] pascal = new int[N+1][];
 		for(int i=1; i<=N;i++) {
@@ -55,47 +55,7 @@ public class PascalTriangle {
 				System.out.println();
 			}
 		}
-		*/
-		// save pascal values 
-		int[][] pascal = new int[N+1][N+1];
-		for(int i=1; i<=N;i++) {
-			pascal[i] = new int[i+1];
-		}
 		
-		for(int i=1;i<=N;i++) {
-			for(int j=1;j<=i;j++) {
-				if(j==1 || j==i) pascal[i][j]=1;
-				else {
-					pascal[i][j]=pascal[i-1][j-1]+pascal[i-1][j];
-				}
-			}
-		}
-		
-		
-		if(M==1) {
-			for(int i=1;i<=N;i++) {
-				for(int j=1;j<=i;j++) {
-					System.out.print(pascal[i][j]+" ");
-				}
-				System.out.println();
-			}
-			
-		}else if(M==2) {
-			for(int i=N;i>=1;i--) {
-				for(int j=1;j<N+1-i;j++) System.out.print(" ");
-				for(int j=i;j>=1;j--) {
-					System.out.print(pascal[i][j]+" ");
-				}
-				System.out.println();
-			}
-		}else if(M==3) {
-			for(int i=N;i>=1;i--) {
-				for(int j=N;j>=1;j--) {
-					if(pascal[j][i]!=0)	System.out.print(pascal[j][i]+" ");
-				}
-				System.out.println();
-			}
-		}
 	}
 
 }
